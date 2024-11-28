@@ -1,8 +1,9 @@
 import { Model } from 'mongoose';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { CustomerModel, CustomerModelDocument } from '..';
 import { ICustomerRepository } from './customer.interface';
-
+@Injectable()
 export class CustomerRepository implements ICustomerRepository {
   constructor(@InjectModel(CustomerModel.name) private readonly customerModel: Model<CustomerModelDocument>) {}
 
